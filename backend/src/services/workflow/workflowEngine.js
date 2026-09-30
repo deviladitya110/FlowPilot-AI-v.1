@@ -97,7 +97,7 @@ const processWorkflow = async (requestId, userId, aiAnalysis) => {
       if (action === 'CREATE_SUPPORT_TICKET') {
         await db.query(
           'INSERT INTO audit_logs (request_id, actor_id, event_type, description) VALUES ($1, $2, $3, $4)',
-          [requestId, userId, 'TICKET_CREATED', \`Ticket auto-generated for \${aiAnalysis.intent}\`]
+          [requestId, userId, 'TICKET_CREATED', `Ticket auto-generated for ${aiAnalysis.intent}`]
         );
       }
 

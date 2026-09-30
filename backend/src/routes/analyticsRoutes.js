@@ -37,7 +37,7 @@ router.get('/overview', async (req, res) => {
         totalRequests: parseInt(totalRequests.rows[0].count),
         pendingApprovals: parseInt(pendingApprovals.rows[0].count),
         automationRate,
-        timeSaved: \`\${parseInt(autoProcessed.rows[0].count) * 15} mins\` // Rough estimate
+        timeSaved: `${parseInt(autoProcessed.rows[0].count) * 15} mins` // Rough estimate
       },
       categoryDistribution: categoryDist.rows,
       recentActivity: recentActivity.rows

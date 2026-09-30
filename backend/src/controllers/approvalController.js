@@ -40,7 +40,7 @@ const resolveApproval = async (req, res, status) => {
     // Audit log
     await db.query(
       'INSERT INTO audit_logs (request_id, actor_id, event_type, description, metadata) VALUES ($1, $2, $3, $4, $5)',
-      [approval.request_id, req.user.id, \`APPROVAL_\${status}\`, \`Request \${status.toLowerCase()} by manager\`, { reason }]
+      [approval.request_id, req.user.id, `APPROVAL_${status}`, `Request ${status.toLowerCase()} by manager`, { reason }]
     );
 
     // Update request status
@@ -57,7 +57,7 @@ const resolveApproval = async (req, res, status) => {
       );
     }
 
-    res.json({ message: \`Request \${status.toLowerCase()} successfully\` });
+    res.json({ message: `Request ${status.toLowerCase()} successfully` });
   } catch (error) {
     console.error('Resolve approval error:', error);
     res.status(500).json({ error: 'Internal server error' });
