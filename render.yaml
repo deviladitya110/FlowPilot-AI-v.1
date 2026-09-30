@@ -1,8 +1,9 @@
 services:
   - type: web
-    name: flowpilot-ai
+    name: flowpilot-backend
     env: node
-    buildCommand: npm install && npm run build
+    rootDir: backend
+    buildCommand: npm install
     startCommand: npm start
     envVars:
       - key: NODE_VERSION
