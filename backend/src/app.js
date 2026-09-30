@@ -9,7 +9,7 @@ const app = express();
 // Middleware
 app.use(helmet());
 app.use(cors({
-  origin: 'http://localhost:5173', // Vite default port
+  origin: ['http://localhost:5173', 'https://flow-pilot-ai-v-1-git-main-adii24.vercel.app'],
   credentials: true
 }));
 app.use(express.json());
