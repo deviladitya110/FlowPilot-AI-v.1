@@ -37,6 +37,13 @@ app.use('/api/approvals', approvalRoutes);
 app.use('/api/audit-logs', auditRoutes);
 app.use('/api/analytics', analyticsRoutes);
 
+// Serve frontend in production
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../../frontend/dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
+});
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
